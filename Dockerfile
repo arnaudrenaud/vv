@@ -9,6 +9,4 @@ RUN if [ "$NODE_ENV" = "development" ]; \
 	else npm install --only=production; \
 	fi
 
-EXPOSE 3000
-
-CMD ["npm", "run", "dev"]
+COPY . .

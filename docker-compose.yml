@@ -3,10 +3,5 @@ services:
   app:
     build:
       context: .
-    ports:
-      - "3000:3000"
     container_name: app
     stdin_open: true
-    volumes:
-       - .:/usr/src
-       - /usr/src/node_modules
