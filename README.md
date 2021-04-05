@@ -5,14 +5,12 @@
 Run in development environment with live reloading:
 
 ```
-docker-compose build
-PORT=3000 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+PORT=3000 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 ```
 
 ## Deployment
 
 Run in production environment:
 ```
-docker-compose build
-PORT=3000 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+PORT=3000 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
 ```
