@@ -12,5 +12,5 @@ PORT=3000 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --bu
 
 Run in production environment:
 ```
-PORT=3000 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
+PORT=3000 ./redeploy.sh
 ```
