@@ -1,0 +1,43 @@
+.gallery {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 48px;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+.piece__image {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.piece__image--landscape {
+  width: 100%;
+}
+
+.piece__image--portrait {
+  width: 71.4%;
+}
+
+.piece-title {
+  margin: 0 16% 0;
+  padding-top: 6px;
+  padding-left: 8px;
+  border-left: 1px solid;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.piece-technique {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  font-style: normal;
+  color: #555;
+}
+
+.piece-details {
+  margin-top: 4px;
+  font-style: normal;
+}
