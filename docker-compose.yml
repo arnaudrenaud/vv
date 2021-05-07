@@ -5,3 +5,7 @@ services:
       context: .
     container_name: app
     stdin_open: true
+    environment:
+      - PORT=$PORT
+    ports:
+      - $PORT:$PORT
