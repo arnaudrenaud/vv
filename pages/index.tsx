@@ -1,5 +1,6 @@
-import next, { GetServerSideProps } from 'next';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import styles from '../styles/Home.module.css';
 import galleryStyles from '../styles/Gallery.module.css';
@@ -18,15 +19,19 @@ const getPiecePrice = (piece: Piece): number =>
 
 const GalleryPiece = ({ piece }: { piece: Piece }) => (
   <li>
-    <img
-      className={`${galleryStyles.piece__image} ${
-        galleryStyles[`piece__image--${piece.orientation}`]
-      }`}
-      src={`/gallery-images/${piece.id}.jpg`}
-      loading="lazy"
-      width={piece.orientation === 'landscape' ? 600 : 428}
-      height={piece.orientation === 'landscape' ? 428 : 600}
-    />
+    <Link href={`/pieces/${piece.id}`} passHref>
+      <a>
+        <img
+          className={`${galleryStyles.piece__image} ${
+            galleryStyles[`piece__image--${piece.orientation}`]
+          }`}
+          src={`/gallery-images/${piece.id}.jpg`}
+          loading="lazy"
+          width={piece.orientation === 'landscape' ? 600 : 428}
+          height={piece.orientation === 'landscape' ? 428 : 600}
+        />
+      </a>
+    </Link>
     <div className={galleryStyles['piece-title']}>
       {piece.title}
       <div className={galleryStyles['piece-technique']}>
