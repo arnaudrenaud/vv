@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getPageLocation } from './window';
 
 import { queryApi } from './query-api';
 
@@ -6,10 +7,13 @@ export const useScrollNearPageBottom = (
   action: Function,
   triggerCondition: any
 ): void => {
+  const [applicablePageLocation] = useState(getPageLocation());
+
   const onScrollToBottom = () => {
+    const currentLocation = getPageLocation();
     if (
-      window.scrollY >
-      document.body.scrollHeight - 1.5 * window.innerHeight
+      window.scrollY > document.body.scrollHeight - 1.5 * window.innerHeight &&
+      currentLocation === applicablePageLocation
     ) {
       window.removeEventListener('scroll', onScrollToBottom);
       action();
