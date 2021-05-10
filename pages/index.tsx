@@ -2,11 +2,13 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Common.module.css';
 import galleryStyles from '../styles/Gallery.module.css';
 import { getPieces } from '../model/piece/functions';
 import { Piece } from '../model/piece/types';
 import { useInfiniteScrollPagination } from '../utils/react-hooks';
+import Header from '../react-components/global/Header';
+import Footer from '../react-components/global/Footer';
 
 const getPiecePrice = (piece: Piece): number =>
   30 +
@@ -60,20 +62,11 @@ const Index = ({ initialPieces }: { initialPieces: Piece[] }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Vestiges vidéo</title>
+        <title>Traces</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className={styles.header}>
-        <div className={styles.header__icon}></div>
-        <p className={styles.header__paragraph}>
-          <i>Vestiges vidéo</i> est un service de vidéosurveillance dessinée.
-        </p>
-        <p className={styles.header__paragraph}>
-          <a href="/special-order">Commandez un dessin inédit</a> ou consultez
-          les dessins existants :
-        </p>
-      </header>
+      <Header />
 
       <main className={styles.main}>
         <ul className={galleryStyles.gallery}>
@@ -83,15 +76,7 @@ const Index = ({ initialPieces }: { initialPieces: Piece[] }) => {
         </ul>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://www.arnaudrenaud.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          www.arnaudrenaud.com
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 };
