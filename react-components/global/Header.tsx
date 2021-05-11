@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { StyledCenteringWrapper } from './CenteringWrapper';
+import { SITE_TITLE } from '../../utils/constants';
+import { StyledCenteringWrapper } from './common';
 
 const StyledHeader = styled.header`
   border-left: 1px solid black;
-  padding: 48px 16px 0px;
+  padding: 24px 16px 8px;
   display: grid;
   gap: 12px;
 `;
@@ -26,24 +27,33 @@ const StyledServiceTitle = styled.span`
 `;
 
 const StyledLogo = styled.img`
+  display: block;
   height: 1.0625rem;
-  margin-right: 8px;
+  margin-bottom: 30px;
 `;
 
-const Header = () => (
-  <StyledCenteringWrapper>
-    <StyledHeader>
-      <StyledHeadParagraph>
-        <StyledLogo src={'/logo.svg'} />
-        <StyledServiceTitle>Traces</StyledServiceTitle> est un service de
-        vidéosurveillance artisanale.
-      </StyledHeadParagraph>
-      <StyledParagraph>
-        <a href="/special-order">Commandez un dessin paramétrable</a> ou
-        consultez les dessins existants :
-      </StyledParagraph>
-    </StyledHeader>
-  </StyledCenteringWrapper>
-);
+const Header = ({ isOnIndexPage }: { isOnIndexPage?: boolean }) => {
+  return (
+    <StyledCenteringWrapper>
+      <StyledHeader>
+        <StyledHeadParagraph>
+          <StyledLogo src={'/logo.svg'} />
+          {isOnIndexPage && (
+            <>
+              <StyledServiceTitle>{SITE_TITLE}</StyledServiceTitle>
+              <span> est un service de vidéosurveillance artisanale.</span>
+            </>
+          )}
+        </StyledHeadParagraph>
+        {isOnIndexPage && (
+          <StyledParagraph>
+            <a href="/special-order">Commandez un dessin paramétrable</a> ou
+            consultez les dessins existants :
+          </StyledParagraph>
+        )}
+      </StyledHeader>
+    </StyledCenteringWrapper>
+  );
+};
 
 export default Header;

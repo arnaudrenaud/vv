@@ -10,6 +10,7 @@ export type Piece = {
   heightCm: number;
   widthCm: number;
   technique: string;
+  techniqueDetails: string;
   numberOfAdults?: number;
   numberOfChildren?: number;
   numberOfDogs?: number;

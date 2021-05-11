@@ -1,23 +1,20 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import styled from 'styled-components';
 
-import styles from '../styles/Common.module.css';
 import galleryStyles from '../styles/Gallery.module.css';
-import { getPieces } from '../model/piece/functions';
 import { Piece } from '../model/piece/types';
-import { useInfiniteScrollPagination } from '../utils/react-hooks';
+import { getPieces, getPiecePrice } from '../model/piece/functions';
+import { PageContainer } from '../react-components/global/PageContainer';
 import Header from '../react-components/global/Header';
 import Footer from '../react-components/global/Footer';
+import { useInfiniteScrollPagination } from '../utils/react-hooks';
+import { SITE_TITLE } from '../utils/constants';
 
-const getPiecePrice = (piece: Piece): number =>
-  30 +
-  3 * (piece.numberOfAdults || 0) +
-  4 * (piece.numberOfChildren || 0) +
-  4 * (piece.numberOfDogs || 0) +
-  5 * (piece.numberOfNonFlyingBirds || 0) +
-  7 * (piece.numberOfFlyingBirds || 0) +
-  6 * (piece.numberOfSubjectsComingAndGoing || 0);
+const StyledMain = styled.main`
+  padding: 64px 0;
+`;
 
 const GalleryPiece = ({ piece }: { piece: Piece }) => (
   <li>
@@ -41,7 +38,10 @@ const GalleryPiece = ({ piece }: { piece: Piece }) => (
         {piece.technique}
       </div>
       <div className={galleryStyles['piece-details']}>
-        {getPiecePrice(piece)} € — <a href="/">détails</a>
+        {getPiecePrice(piece)} € —{' '}
+        <Link href={`/pieces/${piece.id}`} passHref>
+          <a>détails</a>
+        </Link>
       </div>
     </div>
   </li>
@@ -60,24 +60,24 @@ const Index = ({ initialPieces }: { initialPieces: Piece[] }) => {
   ];
 
   return (
-    <div className={styles.container}>
+    <PageContainer>
       <Head>
-        <title>Traces</title>
+        <title>{SITE_TITLE}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header isOnIndexPage />
 
-      <main className={styles.main}>
+      <StyledMain>
         <ul className={galleryStyles.gallery}>
           {pieces.map((piece) => (
             <GalleryPiece piece={piece} key={piece.id} />
           ))}
         </ul>
-      </main>
+      </StyledMain>
 
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 
