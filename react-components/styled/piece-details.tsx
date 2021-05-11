@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { PieceOrientation } from '../../model/piece/types';
-import { SERIF_FONT_FAMILY } from '../global/common';
+import { SERIF_FONT_FAMILY, StyledCenteringWrapper } from '../global/common';
 
 export const StyledMainContainer = styled.main`
   padding: 0 0 64px;
@@ -14,6 +14,11 @@ export const StyledImageWrapper = styled.div`
     width: 100vh;
     height: 100vh;
   } ;
+`;
+
+export const StyledPieceWrapper = styled.div`
+  border-left: 1px solid;
+  padding: 0 16px;
 `;
 
 export const StyledImage = styled.img<{ orientation: PieceOrientation }>`
@@ -38,15 +43,14 @@ export const StyledImage = styled.img<{ orientation: PieceOrientation }>`
 
 export const StyledTitle = styled.h1`
   margin: 0;
-  border-left: 1px solid black;
-  padding: 16px 16px 0 16px;
+  padding-top: 24px;
   font-size: 1.125rem;
   font-weight: normal;
   font-style: italic;
   font-family: ${SERIF_FONT_FAMILY};
 
   @media (min-width: 960px) and (min-aspect-ratio: 4 / 3) {
-    margin: 32px 0 32px;
+    margin: 32px 0 24px;
   }
 `;
 
@@ -72,9 +76,7 @@ export const StyledTechniqueDetails = styled.div`
 
 export const StyledPriceAndOrder = styled.div`
   margin-top: 8px;
-  border-left: 1px solid #999;
   padding-top: 8px;
-  padding-left: 12px;
   font-size: 1rem;
 `;
 
@@ -82,7 +84,7 @@ export const StyledTotalPrice = styled.div`
   font-size: 1.125rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: 16px;
 `;
 
 export const StyledPriceDetails = styled.div``;

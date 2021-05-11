@@ -34,6 +34,7 @@ import {
   StyledTotalPrice,
   StyledTotalPriceLabel,
   StyledOrderButton,
+  StyledPieceWrapper,
 } from '../../react-components/styled/piece-details';
 import { SITE_TITLE } from '../../utils/constants';
 
@@ -132,6 +133,7 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
           />
         </StyledImageWrapper>
         <StyledCenteringWrapper isOnPieceDetailsPage>
+          <StyledPieceWrapper>
           <StyledTitle>{piece.title}</StyledTitle>
           <StyledDetails>
             <StyledYearOfProduction>2021</StyledYearOfProduction>
@@ -152,6 +154,7 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
               <StyledOrderButton>Commander</StyledOrderButton>
             </StyledPriceAndOrder>
           </StyledDetails>
+          </StyledPieceWrapper>
         </StyledCenteringWrapper>
       </StyledMainContainer>
 
