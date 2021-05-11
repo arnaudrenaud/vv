@@ -125,35 +125,41 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
 
       <StyledMainContainer>
         <StyledImageWrapper>
-          <StyledImage
-            src={`/detail-images/${piece.id}.jpg`}
-            orientation={piece.orientation}
-            width={piece.orientation === 'landscape' ? 600 : 428}
-            height={piece.orientation === 'landscape' ? 428 : 600}
-          />
+          <a
+            href={`/detail-images/${piece.id}.jpg`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <StyledImage
+              src={`/detail-images/${piece.id}.jpg`}
+              orientation={piece.orientation}
+              width={piece.orientation === 'landscape' ? 600 : 428}
+              height={piece.orientation === 'landscape' ? 428 : 600}
+            />
+          </a>
         </StyledImageWrapper>
         <StyledCenteringWrapper isOnPieceDetailsPage>
           <StyledPieceWrapper>
-          <StyledTitle>{piece.title}</StyledTitle>
-          <StyledDetails>
-            <StyledYearOfProduction>2021</StyledYearOfProduction>
-            <StyledDimensions>
-              {piece.heightCm}&thinsp;x&thinsp;{piece.widthCm}&thinsp;cm
-            </StyledDimensions>
-            <StyledTechniqueDetails>
-              {piece.techniqueDetails}
-            </StyledTechniqueDetails>
-            <StyledPriceAndOrder>
-              <PriceDetails piece={piece} />
-              <StyledTotalPrice>
-                <StyledTotalPriceLabel>
-                  Prix total&thinsp;:&thinsp;
-                </StyledTotalPriceLabel>
-                {getPiecePrice(piece)} €
-              </StyledTotalPrice>
-              <StyledOrderButton>Commander</StyledOrderButton>
-            </StyledPriceAndOrder>
-          </StyledDetails>
+            <StyledTitle>{piece.title}</StyledTitle>
+            <StyledDetails>
+              <StyledYearOfProduction>2021</StyledYearOfProduction>
+              <StyledDimensions>
+                {piece.heightCm}&thinsp;x&thinsp;{piece.widthCm}&thinsp;cm
+              </StyledDimensions>
+              <StyledTechniqueDetails>
+                {piece.techniqueDetails}
+              </StyledTechniqueDetails>
+              <StyledPriceAndOrder>
+                <PriceDetails piece={piece} />
+                <StyledTotalPrice>
+                  <StyledTotalPriceLabel>
+                    Prix total&thinsp;:&thinsp;
+                  </StyledTotalPriceLabel>
+                  {getPiecePrice(piece)} €
+                </StyledTotalPrice>
+                <StyledOrderButton>Commander</StyledOrderButton>
+              </StyledPriceAndOrder>
+            </StyledDetails>
           </StyledPieceWrapper>
         </StyledCenteringWrapper>
       </StyledMainContainer>
