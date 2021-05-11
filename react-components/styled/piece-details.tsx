@@ -1,16 +1,39 @@
 import styled from 'styled-components';
+import { PieceOrientation } from '../../model/piece/types';
 import { SERIF_FONT_FAMILY } from '../global/common';
 
 export const StyledMainContainer = styled.main`
   padding: 0 0 64px;
 `;
 
-export const StyledImageWrapper = styled.div``;
+export const StyledImageWrapper = styled.div`
+  @media (min-width: 960px) and (min-aspect-ratio: 4 / 3) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vh;
+    height: 100vh;
+  } ;
+`;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled.img<{ orientation: PieceOrientation }>`
   display: block;
   width: 100%;
   height: auto;
+
+  @media (min-width: 960px) and (min-aspect-ratio: 4 / 3) {
+    margin-top: 79px; /* Header height */
+
+    ${({ orientation }) =>
+      orientation === PieceOrientation.PORTRAIT &&
+      `
+      width: auto;
+      height: 100%;
+      margin-top: 0;
+      margin-left: 64px;
+      width: calc(100% * 30 / 42)
+    `}
+  }
 `;
 
 export const StyledTitle = styled.h1`
@@ -21,6 +44,10 @@ export const StyledTitle = styled.h1`
   font-weight: normal;
   font-style: italic;
   font-family: ${SERIF_FONT_FAMILY};
+
+  @media (min-width: 960px) and (min-aspect-ratio: 4 / 3) {
+    margin: 32px 0 32px;
+  }
 `;
 
 export const StyledDetails = styled.div`

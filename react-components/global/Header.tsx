@@ -32,9 +32,15 @@ const StyledLogo = styled.img`
   margin-bottom: 30px;
 `;
 
-const Header = ({ isOnIndexPage }: { isOnIndexPage?: boolean }) => {
+const Header = ({
+  isOnIndexPage,
+  isOnPieceDetailsPage,
+}: {
+  isOnIndexPage?: boolean;
+  isOnPieceDetailsPage?: boolean;
+}) => {
   return (
-    <StyledCenteringWrapper>
+    <StyledCenteringWrapper isOnPieceDetailsPage={isOnPieceDetailsPage}>
       <StyledHeader>
         <StyledHeadParagraph>
           <StyledLogo src={'/logo.svg'} />

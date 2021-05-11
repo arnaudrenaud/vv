@@ -120,17 +120,18 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header isOnPieceDetailsPage />
 
       <StyledMainContainer>
         <StyledImageWrapper>
           <StyledImage
             src={`/detail-images/${piece.id}.jpg`}
+            orientation={piece.orientation}
             width={piece.orientation === 'landscape' ? 600 : 428}
             height={piece.orientation === 'landscape' ? 428 : 600}
           />
         </StyledImageWrapper>
-        <StyledCenteringWrapper>
+        <StyledCenteringWrapper isOnPieceDetailsPage>
           <StyledTitle>{piece.title}</StyledTitle>
           <StyledDetails>
             <StyledYearOfProduction>2021</StyledYearOfProduction>
@@ -154,7 +155,7 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
         </StyledCenteringWrapper>
       </StyledMainContainer>
 
-      <Footer />
+      <Footer isOnPieceDetailsPage />
     </PageContainer>
   );
 }

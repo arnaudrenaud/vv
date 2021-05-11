@@ -15,9 +15,13 @@ const StyledFooter = styled.footer`
   font-size: 0.9375rem;
 `;
 
-const Footer = () => (
+const Footer = ({
+  isOnPieceDetailsPage,
+}: {
+  isOnPieceDetailsPage?: boolean;
+}) => (
   <StyledPositioningWrapper>
-    <StyledCenteringWrapper>
+    <StyledCenteringWrapper isOnPieceDetailsPage={isOnPieceDetailsPage}>
       <StyledFooter>
         <a
           href="https://www.arnaudrenaud.com"
