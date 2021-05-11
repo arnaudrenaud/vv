@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { SITE_TITLE } from '../../utils/constants';
 import { StyledCenteringWrapper } from './common';
+import Logo from './Logo';
 
 const StyledHeader = styled.header`
   border-left: 1px solid black;
@@ -26,12 +27,6 @@ const StyledServiceTitle = styled.span`
   font-size: 1.1875rem;
 `;
 
-const StyledLogo = styled.img`
-  display: block;
-  height: 1.0625rem;
-  margin-bottom: 30px;
-`;
-
 const Header = ({
   isOnIndexPage,
   isOnPieceDetailsPage,
@@ -43,7 +38,7 @@ const Header = ({
     <StyledCenteringWrapper isOnPieceDetailsPage={isOnPieceDetailsPage}>
       <StyledHeader>
         <StyledHeadParagraph>
-          <StyledLogo src={'/logo.svg'} />
+          <Logo isOnIndexPage={isOnIndexPage} />
           {isOnIndexPage && (
             <>
               <StyledServiceTitle>{SITE_TITLE}</StyledServiceTitle>
