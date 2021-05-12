@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { PieceOrientation } from '../../model/piece/types';
-import { SERIF_FONT_FAMILY, StyledCenteringWrapper } from '../global/common';
+import { Button, SERIF_FONT_FAMILY } from '../global/common';
 
 export const StyledMainContainer = styled.main`
   padding: 0 0 64px;
@@ -18,7 +18,6 @@ export const StyledImageWrapper = styled.div`
 
 export const StyledPieceWrapper = styled.div`
   border-left: 1px solid;
-  padding: 0 16px;
 `;
 
 export const StyledImage = styled.img<{ orientation: PieceOrientation }>`
@@ -42,7 +41,7 @@ export const StyledImage = styled.img<{ orientation: PieceOrientation }>`
 `;
 
 export const StyledTitle = styled.h1`
-  margin: 0;
+  margin: 0 16px 0;
   padding-top: 24px;
   font-size: 1.125rem;
   font-weight: normal;
@@ -50,12 +49,13 @@ export const StyledTitle = styled.h1`
   font-family: ${SERIF_FONT_FAMILY};
 
   @media (min-width: 960px) and (min-aspect-ratio: 4 / 3) {
-    margin: 32px 0 24px;
+    margin-top: 32px;
+    margin-bottom: 24px;
   }
 `;
 
 export const StyledDetails = styled.div`
-  margin: 16px 0;
+  margin: 16px 16px 8px;
   display: grid;
   gap: 8px;
 `;
@@ -108,25 +108,24 @@ export const StyledPriceDetailsListItemTotalPrice = styled.span`
   white-space: nowrap;
 `;
 
-export const StyledOrderButton = styled.button`
-  float: right;
-  margin-top: 10px;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 6px 8px;
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: initial;
-  background: transparent;
-  box-shadow: 1px 1px black;
-
-  &:active {
-    background: #ddd;
-    box-shadow: inset 1px 1px black;
-  }
+export const StyledOrderButton = styled(Button)`
+  margin: 0 16px 0 0;
 `;
 
 export const StyledTotalPriceLabel = styled.span`
   font-size: 1rem;
+`;
+
+export const StyledOrderFormWrapper = styled.div`
+  margin-top: 4px;
+  padding: 16px;
+  background: #f9f9f9;
+`;
+
+export const StyledOrderFormInfo = styled.p`
+  font-size: calc(15rem / 16);
+`;
+
+export const StyledOrderFormAdditionalInfo = styled.span`
+  font-size: calc(13rem / 16);
 `;

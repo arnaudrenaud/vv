@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   PIECE_BASE_PRICE,
   PIECE_PRICE_PER_ADULT,
@@ -13,7 +13,11 @@ import {
 
 import { getPiece, getPiecePrice } from '../../model/piece/functions';
 import { Piece } from '../../model/piece/types';
-import { StyledCenteringWrapper } from '../../react-components/global/common';
+import {
+  Button,
+  StyledCenteringWrapper,
+  StyledInputField,
+} from '../../react-components/global/common';
 import Footer from '../../react-components/global/Footer';
 import Header from '../../react-components/global/Header';
 import { PageContainer } from '../../react-components/global/PageContainer';
@@ -35,6 +39,9 @@ import {
   StyledTotalPriceLabel,
   StyledOrderButton,
   StyledPieceWrapper,
+  StyledOrderFormInfo,
+  StyledOrderFormWrapper,
+  StyledOrderFormAdditionalInfo,
 } from '../../react-components/styled/piece-details';
 import { SITE_TITLE } from '../../utils/constants';
 
@@ -100,6 +107,34 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
   );
 };
 
+const OrderForm = () => (
+  <>
+    <div>Commande&thinsp;:</div>
+    <StyledOrderFormInfo>
+      Entrez votre adresse email et vous serez contacté pour convenir des modes
+      de paiement et de livraison.
+    </StyledOrderFormInfo>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+      }}
+    >
+      <label>
+        Email&thinsp;:{' '}
+        <StyledInputField
+          type="email"
+          id="email"
+          name="email"
+          required
+          autoComplete="email"
+        />
+      </label>
+      <br />
+      <Button type="submit">Envoyer</Button>
+    </form>
+  </>
+);
+
 export const getServerSideProps: GetServerSideProps = async (
   context
 ): Promise<{
@@ -112,6 +147,8 @@ export const getServerSideProps: GetServerSideProps = async (
 };
 
 export default function PieceDetails({ piece }: { piece: Piece }) {
+  const [showOrderForm, setShowOrderForm] = useState(false);
+
   return (
     <PageContainer>
       <Head>
@@ -157,9 +194,21 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
                   </StyledTotalPriceLabel>
                   {getPiecePrice(piece)} €
                 </StyledTotalPrice>
-                <StyledOrderButton>Commander</StyledOrderButton>
               </StyledPriceAndOrder>
             </StyledDetails>
+            <StyledOrderFormWrapper>
+              {showOrderForm ? (
+                <OrderForm />
+              ) : (
+                <StyledOrderButton
+                  onClick={() => {
+                    setShowOrderForm(true);
+                  }}
+                >
+                  Commander
+                </StyledOrderButton>
+              )}
+            </StyledOrderFormWrapper>
           </StyledPieceWrapper>
         </StyledCenteringWrapper>
       </StyledMainContainer>

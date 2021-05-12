@@ -21,3 +21,30 @@ export const StyledCenteringWrapper = styled.div<{
       padding: 0 48px;
   }`}
 `;
+
+export const Button = styled.button`
+  margin: 10px 0 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: initial;
+  background: white;
+  box-shadow: 1px 1px black;
+
+  &:active {
+    background: #eee;
+    box-shadow: inset 1px 1px black;
+  }
+`;
+
+export const StyledInputField = styled.input`
+  margin: 0;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 4px 4px 5px;
+  font-size: 1rem;
+  -webkit-appearance: none;
+`;
