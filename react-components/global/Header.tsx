@@ -41,8 +41,8 @@ const Header = ({
           <Logo isOnIndexPage={isOnIndexPage} />
           {isOnIndexPage && (
             <>
-              <StyledServiceTitle>{SITE_TITLE}</StyledServiceTitle>
-              <span> est un service de vidéosurveillance artisanale.</span>
+              <StyledServiceTitle>{SITE_TITLE}</StyledServiceTitle>{' '}
+              <span>est un service artisanal de suivi de mouvement.</span>
             </>
           )}
         </StyledHeadParagraph>
