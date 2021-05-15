@@ -37,7 +37,7 @@ const GalleryPiece = ({ piece }: { piece: Piece }) => (
         {piece.technique}
       </div>
       <div className={galleryStyles['piece-details']}>
-        {getPiecePrice(piece)} € —{' '}
+        {getPiecePrice(piece)}&thinsp;€ —{' '}
         <Link href={`/pieces/${piece.id}`} passHref>
           <a>détails</a>
         </Link>

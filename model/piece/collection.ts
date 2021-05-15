@@ -9,7 +9,8 @@ export const pieces: Piece[] = [
     heightCm: 42,
     widthCm: 30,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 3,
     numberOfDogs: 2,
     numberOfNonFlyingBirds: 1,
@@ -22,7 +23,8 @@ export const pieces: Piece[] = [
     heightCm: 42,
     widthCm: 30,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 1,
     numberOfFlyingBirds: 4,
   },
@@ -33,7 +35,8 @@ export const pieces: Piece[] = [
     heightCm: 42,
     widthCm: 30,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 1,
     numberOfDogs: 2,
   },
@@ -45,7 +48,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfFlyingBirds: 6,
   },
   {
@@ -55,7 +59,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfNonFlyingBirds: 4,
     numberOfFlyingBirds: 1,
   },
@@ -66,7 +71,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfNonFlyingBirds: 2,
   },
   {
@@ -76,7 +82,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 3,
   },
   {
@@ -87,7 +94,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 1,
     numberOfDogs: 1,
     numberOfFlyingBirds: 4,
@@ -100,7 +108,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 2,
     numberOfDogs: 1,
   },
@@ -111,7 +120,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 1,
     numberOfDogs: 1,
   },
@@ -123,7 +133,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 1,
     numberOfChildren: 2,
   },
@@ -135,7 +146,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 2,
     numberOfNonFlyingBirds: 2,
     numberOfSubjectsComingAndGoing: 1,
@@ -147,7 +159,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 1,
     numberOfChildren: 1,
     numberOfSubjectsComingAndGoing: 2,
@@ -160,7 +173,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 1,
     numberOfChildren: 2,
   },
@@ -172,7 +186,8 @@ export const pieces: Piece[] = [
     heightCm: 30,
     widthCm: 42,
     technique: 'feutre sur papier',
-    techniqueDetails: 'feutre 1,0 mm sur papier à grain 180 g/m²',
+    techniqueDetails:
+      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
     numberOfAdults: 2,
     numberOfChildren: 2,
   },

@@ -94,11 +94,11 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
           (feature) =>
             piece[feature.key] && (
               <StyledPriceDetailsListItem key={feature.key}>
-                {feature.unitPrice} € {feature.label}&thinsp;:&thinsp;
+                {feature.unitPrice}&thinsp;€ {feature.label}&thinsp;:&thinsp;
                 <StyledPriceDetailsListItemTotalPrice>
                   {piece[feature.key]}&thinsp;x&thinsp;{feature.unitPrice}
                   &thinsp;=&thinsp;
-                  {feature.unitPrice * piece[feature.key]} €
+                  {feature.unitPrice * piece[feature.key]}&thinsp;€
                 </StyledPriceDetailsListItemTotalPrice>
               </StyledPriceDetailsListItem>
             )
@@ -185,16 +185,16 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
               <StyledDimensions>
                 {piece.heightCm}&thinsp;x&thinsp;{piece.widthCm}&thinsp;cm
               </StyledDimensions>
-              <StyledTechniqueDetails>
-                {piece.techniqueDetails}
-              </StyledTechniqueDetails>
+              <StyledTechniqueDetails
+                dangerouslySetInnerHTML={{ __html: piece.techniqueDetails }}
+              />
               <StyledPriceAndOrder>
                 <PriceDetails piece={piece} />
                 <StyledTotalPrice>
                   <StyledTotalPriceLabel>
                     Prix total&thinsp;:&thinsp;
                   </StyledTotalPriceLabel>
-                  {getPiecePrice(piece)} €
+                  {getPiecePrice(piece)}&thinsp;€
                 </StyledTotalPrice>
               </StyledPriceAndOrder>
             </StyledDetails>
