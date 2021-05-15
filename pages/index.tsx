@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import galleryStyles from '../styles/Gallery.module.css';
+import { LinkToPieceDetails } from '../react-components/styled/gallery';
 import { Piece } from '../model/piece/types';
 import { getPieces, getPiecePrice } from '../model/piece/functions';
 import { PageContainer } from '../react-components/global/PageContainer';
@@ -19,17 +20,15 @@ const StyledMain = styled.main`
 const GalleryPiece = ({ piece }: { piece: Piece }) => (
   <li>
     <Link href={`/pieces/${piece.id}`} passHref>
-      <a>
+      <LinkToPieceDetails orientation={piece.orientation}>
         <img
-          className={`${galleryStyles.piece__image} ${
-            galleryStyles[`piece__image--${piece.orientation}`]
-          }`}
+          className={galleryStyles.piece__image}
           src={`/gallery-images/${piece.id}.jpg`}
           loading="lazy"
           width={piece.orientation === 'landscape' ? 600 : 428}
           height={piece.orientation === 'landscape' ? 428 : 600}
         />
-      </a>
+      </LinkToPieceDetails>
     </Link>
     <div className={galleryStyles['piece-title']}>
       {piece.title}

@@ -9,16 +9,8 @@
 
 .piece__image {
   display: block;
-  margin: 0 auto;
-  height: auto;
-}
-
-.piece__image--landscape {
   width: 100%;
-}
-
-.piece__image--portrait {
-  width: 71.4%;
+  height: auto;
 }
 
 .piece-title {

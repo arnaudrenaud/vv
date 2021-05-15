@@ -20,22 +20,27 @@ export const StyledPieceWrapper = styled.div`
   border-left: 1px solid;
 `;
 
+export const StyledImageLink = styled.a<{ orientation: PieceOrientation }>`
+  display: block;
+  @media (min-width: 960px) and (min-aspect-ratio: 4 / 3) {
+    ${({ orientation }) =>
+      orientation === PieceOrientation.PORTRAIT
+        ? 'width: 71.4%; height: 100%; margin-left: 64px'
+        : 'margin-top: 79px'}
+  }
+`;
+
 export const StyledImage = styled.img<{ orientation: PieceOrientation }>`
   display: block;
   width: 100%;
   height: auto;
 
   @media (min-width: 960px) and (min-aspect-ratio: 4 / 3) {
-    margin-top: 79px; /* Header height */
-
     ${({ orientation }) =>
       orientation === PieceOrientation.PORTRAIT &&
       `
-      width: auto;
       height: 100%;
       margin-top: 0;
-      margin-left: 64px;
-      width: calc(100% * 30 / 42)
     `}
   }
 `;

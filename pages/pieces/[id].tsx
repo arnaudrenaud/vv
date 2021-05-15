@@ -42,6 +42,7 @@ import {
   StyledOrderFormInfo,
   StyledOrderFormWrapper,
   StyledOrderFormAdditionalInfo,
+  StyledImageLink,
 } from '../../react-components/styled/piece-details';
 import { SITE_TITLE } from '../../utils/constants';
 
@@ -162,10 +163,11 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
 
       <StyledMainContainer>
         <StyledImageWrapper>
-          <a
+          <StyledImageLink
             href={`/detail-images/${piece.id}.jpg`}
             target="_blank"
             rel="noopener noreferrer"
+            orientation={piece.orientation}
           >
             <StyledImage
               src={`/detail-images/${piece.id}.jpg`}
@@ -173,7 +175,7 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
               width={piece.orientation === 'landscape' ? 600 : 428}
               height={piece.orientation === 'landscape' ? 428 : 600}
             />
-          </a>
+          </StyledImageLink>
         </StyledImageWrapper>
         <StyledCenteringWrapper isOnPieceDetailsPage>
           <StyledPieceWrapper>
