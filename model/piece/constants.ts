@@ -1,4 +1,6 @@
-export const PIECE_BASE_PRICE = 30;
+export const PIECE_PRICE_FOR_VIDEO_RECORDING = 10;
+export const PIECE_PRICE_FOR_FIRST_TRACING = 8;
+export const PIECE_PRICE_FOR_SECOND_TRACING = 12;
 export const PIECE_PRICE_PER_ADULT = 3;
 export const PIECE_PRICE_PER_CHILD = 4;
 export const PIECE_PRICE_PER_DOG = 4;

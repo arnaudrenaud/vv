@@ -19,6 +19,9 @@ export type Piece = {
   widthCm: number;
   technique: PieceTechnique;
   techniqueDetails: PieceTechniqueDetails;
+  videoRecording?: boolean;
+  firstTracing?: boolean;
+  secondTracing?: boolean;
   numberOfAdults?: number;
   numberOfChildren?: number;
   numberOfDogs?: number;

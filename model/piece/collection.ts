@@ -16,6 +16,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 3,
     numberOfDogs: 2,
     numberOfNonFlyingBirds: 1,
@@ -30,6 +33,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 1,
     numberOfFlyingBirds: 4,
   },
@@ -42,6 +48,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 1,
     numberOfDogs: 2,
   },
@@ -55,6 +64,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfFlyingBirds: 6,
   },
   {
@@ -66,6 +78,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfNonFlyingBirds: 4,
     numberOfFlyingBirds: 1,
   },
@@ -78,6 +93,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfNonFlyingBirds: 2,
   },
   {
@@ -89,6 +107,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 3,
   },
   {
@@ -101,6 +122,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 1,
     numberOfDogs: 1,
     numberOfFlyingBirds: 4,
@@ -115,6 +139,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 2,
     numberOfDogs: 1,
   },
@@ -127,6 +154,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 1,
     numberOfDogs: 1,
   },
@@ -140,6 +170,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 1,
     numberOfChildren: 2,
   },
@@ -153,6 +186,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 2,
     numberOfNonFlyingBirds: 2,
     numberOfSubjectsComingAndGoing: 1,
@@ -166,6 +202,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 1,
     numberOfChildren: 1,
     numberOfSubjectsComingAndGoing: 2,
@@ -180,6 +219,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 1,
     numberOfChildren: 2,
   },
@@ -193,6 +235,9 @@ export const pieces: Piece[] = [
     technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
       PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
+    videoRecording: true,
+    firstTracing: true,
+    secondTracing: true,
     numberOfAdults: 2,
     numberOfChildren: 2,
   },

@@ -2,7 +2,9 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React, { useState } from 'react';
 import {
-  PIECE_BASE_PRICE,
+  PIECE_PRICE_FOR_FIRST_TRACING,
+  PIECE_PRICE_FOR_SECOND_TRACING,
+  PIECE_PRICE_FOR_VIDEO_RECORDING,
   PIECE_PRICE_PER_ADULT,
   PIECE_PRICE_PER_CHILD,
   PIECE_PRICE_PER_DOG,
@@ -47,7 +49,25 @@ import {
 import { SITE_TITLE } from '../../utils/constants';
 
 const PriceDetails = ({ piece }: { piece: Piece }) => {
-  const calculablePriceFeatures = [
+  const fixedPriceFeatures = [
+    {
+      key: 'videoRecording',
+      label: 'captation vidéo',
+      price: PIECE_PRICE_FOR_VIDEO_RECORDING,
+    },
+    {
+      key: 'firstTracing',
+      label: 'premier décalque',
+      price: PIECE_PRICE_FOR_FIRST_TRACING,
+    },
+    {
+      key: 'secondTracing',
+      label: 'second décalque',
+      price: PIECE_PRICE_FOR_SECOND_TRACING,
+    },
+  ];
+
+  const multipliablePriceFeatures = [
     {
       key: 'numberOfAdults',
       label: 'par adulte',
@@ -84,13 +104,18 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
     <StyledPriceDetails>
       Détail du prix&thinsp;:&thinsp;
       <StyledPriceDetailsList>
-        <StyledPriceDetailsListItem>
-          prix de base&thinsp;:&thinsp;
-          <StyledPriceDetailsListItemTotalPrice>
-            {PIECE_BASE_PRICE} €
-          </StyledPriceDetailsListItemTotalPrice>
-        </StyledPriceDetailsListItem>
-        {calculablePriceFeatures.map(
+        {fixedPriceFeatures.map(
+          (feature) =>
+            piece[feature.key] && (
+              <StyledPriceDetailsListItem key={feature.key}>
+                {feature.label}&thinsp;:&thinsp;
+                <StyledPriceDetailsListItemTotalPrice>
+                  {feature.price}&thinsp;€
+                </StyledPriceDetailsListItemTotalPrice>
+              </StyledPriceDetailsListItem>
+            )
+        )}
+        {multipliablePriceFeatures.map(
           (feature) =>
             piece[feature.key] && (
               <StyledPriceDetailsListItem key={feature.key}>
