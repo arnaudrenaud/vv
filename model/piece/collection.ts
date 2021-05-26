@@ -1,4 +1,9 @@
-import { Piece, PieceOrientation } from './types';
+import {
+  Piece,
+  PieceOrientation,
+  PieceTechnique,
+  PieceTechniqueDetails,
+} from './types';
 
 export const pieces: Piece[] = [
   {
@@ -8,9 +13,9 @@ export const pieces: Piece[] = [
       'Un pigeon, deux chiens, trois personnes dont la maîtresse des chiens (rue des Alouettes, Paris)',
     heightCm: 42,
     widthCm: 30,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 3,
     numberOfDogs: 2,
     numberOfNonFlyingBirds: 1,
@@ -22,9 +27,9 @@ export const pieces: Piece[] = [
       'Trois pigeons, un corbeau, un scooter les chassant (rue des Alouettes, Paris)',
     heightCm: 42,
     widthCm: 30,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 1,
     numberOfFlyingBirds: 4,
   },
@@ -34,9 +39,9 @@ export const pieces: Piece[] = [
     title: 'Deux chiens, leur maître (rue des Alouettes, Paris)',
     heightCm: 42,
     widthCm: 30,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 1,
     numberOfDogs: 2,
   },
@@ -47,9 +52,9 @@ export const pieces: Piece[] = [
       'Six pigeons dispersés par deux corbeaux non représentés (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfFlyingBirds: 6,
   },
   {
@@ -58,9 +63,9 @@ export const pieces: Piece[] = [
     title: 'Cinq pigeons (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfNonFlyingBirds: 4,
     numberOfFlyingBirds: 1,
   },
@@ -70,9 +75,9 @@ export const pieces: Piece[] = [
     title: 'Deux pigeons (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfNonFlyingBirds: 2,
   },
   {
@@ -81,9 +86,9 @@ export const pieces: Piece[] = [
     title: 'Trois personnes gagnant un banc (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 3,
   },
   {
@@ -93,9 +98,9 @@ export const pieces: Piece[] = [
       'Quatre pigeons, un chien accompagné de son maître les dérangeant (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 1,
     numberOfDogs: 1,
     numberOfFlyingBirds: 4,
@@ -107,9 +112,9 @@ export const pieces: Piece[] = [
       'Un chien, son maître, une personne l’accompagnant (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 2,
     numberOfDogs: 1,
   },
@@ -119,9 +124,9 @@ export const pieces: Piece[] = [
     title: 'Un maître, son chien (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 1,
     numberOfDogs: 1,
   },
@@ -132,9 +137,9 @@ export const pieces: Piece[] = [
       'Deux enfants, une femme les accompagnant (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 1,
     numberOfChildren: 2,
   },
@@ -145,9 +150,9 @@ export const pieces: Piece[] = [
       "Deux pigeons, un homme s'asseyant sur un banc, un livreur à pied saluant l'homme du banc puis partant à scooter (rue des Alouettes, Paris)",
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 2,
     numberOfNonFlyingBirds: 2,
     numberOfSubjectsComingAndGoing: 1,
@@ -158,9 +163,9 @@ export const pieces: Piece[] = [
     title: 'Un homme et un enfant jouant au ballon (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 1,
     numberOfChildren: 1,
     numberOfSubjectsComingAndGoing: 2,
@@ -172,9 +177,9 @@ export const pieces: Piece[] = [
       'Un homme et deux enfants descendant d’une voiture (rue des Alouettes, Paris)',
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 1,
     numberOfChildren: 2,
   },
@@ -185,9 +190,9 @@ export const pieces: Piece[] = [
       "Deux femmes marchant chacune avec un enfant, les enfants suivant l'une d'elles, l'autre repartant seule (rue des Alouettes, Paris)",
     heightCm: 30,
     widthCm: 42,
-    technique: 'feutre sur papier',
+    technique: PieceTechnique.FELT_PEN_ON_PAPER,
     techniqueDetails:
-      'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+      PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER,
     numberOfAdults: 2,
     numberOfChildren: 2,
   },
