@@ -42,14 +42,13 @@ const Header = ({
           {isOnIndexPage && (
             <>
               <StyledServiceTitle>{SITE_TITLE}</StyledServiceTitle>{' '}
-              <span>est un service artisanal de suivi de mouvement.</span>
+              <span>est un projet de transcription du mouvement.</span>
             </>
           )}
         </StyledHeadParagraph>
         {isOnIndexPage && (
           <StyledParagraph>
-            <a href="/special-order">Commandez un dessin paramétrable</a> ou
-            consultez les dessins existants :
+            Chaque trait résulte du suivi d’une figure dans une scène.
           </StyledParagraph>
         )}
       </StyledHeader>
