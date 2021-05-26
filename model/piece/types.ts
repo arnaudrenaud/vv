@@ -4,11 +4,11 @@ export enum PieceOrientation {
 }
 
 export enum PieceTechnique {
-  FELT_PEN_ON_PAPER = 'feutre sur papier',
+  FELT_PEN_ON_PAPER = 'FELT_PEN_ON_PAPER',
 }
 
 export enum PieceTechniqueDetails {
-  ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER = 'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+  ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER = 'ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER',
 }
 
 export type Piece = {

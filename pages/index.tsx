@@ -11,7 +11,7 @@ import { PageContainer } from '../react-components/global/PageContainer';
 import Header from '../react-components/global/Header';
 import Footer from '../react-components/global/Footer';
 import { useInfiniteScrollPagination } from '../utils/react-hooks';
-import { SITE_TITLE } from '../utils/constants';
+import { pieceTechniqueHTMLLabel, SITE_TITLE } from '../utils/constants';
 
 const StyledMain = styled.main`
   padding: 64px 0;
@@ -34,7 +34,7 @@ const GalleryPiece = ({ piece }: { piece: Piece }) => (
       {piece.title}
       <div className={galleryStyles['piece-technique']}>
         {piece.heightCm}&thinsp;x&thinsp;{piece.widthCm}&thinsp;cm,{' '}
-        {piece.technique}
+        {pieceTechniqueHTMLLabel[piece.technique]}
       </div>
       <div className={galleryStyles['piece-details']}>
         {getPiecePrice(piece)}&thinsp;€ —{' '}

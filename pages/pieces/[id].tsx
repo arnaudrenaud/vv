@@ -43,10 +43,12 @@ import {
   StyledPieceWrapper,
   StyledOrderFormInfo,
   StyledOrderFormWrapper,
-  StyledOrderFormAdditionalInfo,
   StyledImageLink,
 } from '../../react-components/styled/piece-details';
-import { SITE_TITLE } from '../../utils/constants';
+import {
+  pieceTechniqueDetailsHTMLLabel,
+  SITE_TITLE,
+} from '../../utils/constants';
 
 const PriceDetails = ({ piece }: { piece: Piece }) => {
   const fixedPriceFeatures = [
@@ -211,7 +213,10 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
                 {piece.heightCm}&thinsp;x&thinsp;{piece.widthCm}&thinsp;cm
               </StyledDimensions>
               <StyledTechniqueDetails
-                dangerouslySetInnerHTML={{ __html: piece.techniqueDetails }}
+                dangerouslySetInnerHTML={{
+                  __html:
+                    pieceTechniqueDetailsHTMLLabel[piece.techniqueDetails],
+                }}
               />
               <StyledPriceAndOrder>
                 <PriceDetails piece={piece} />
