@@ -37,8 +37,8 @@ const Header = ({
   return (
     <StyledCenteringWrapper isOnPieceDetailsPage={isOnPieceDetailsPage}>
       <StyledHeader>
+        <Logo isOnIndexPage={isOnIndexPage} />
         <StyledHeadParagraph>
-          <Logo isOnIndexPage={isOnIndexPage} />
           {isOnIndexPage && (
             <>
               <StyledServiceTitle>{SITE_TITLE}</StyledServiceTitle>{' '}
