@@ -7,6 +7,7 @@ import galleryStyles from '../styles/Gallery.module.css';
 import { LinkToPieceDetails } from '../react-components/styled/gallery';
 import { Piece } from '../model/piece/types';
 import { getPieces, getPiecePrice } from '../model/piece/functions';
+import { getPieces as getPiecesThroughApi } from '../utils/query-api';
 import { PageContainer } from '../react-components/global/PageContainer';
 import Header from '../react-components/global/Header';
 import Footer from '../react-components/global/Footer';
@@ -54,9 +55,10 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
 };
 
 const Index = ({ initialPieces }: { initialPieces: Piece[] }) => {
-  const [pieces] = useInfiniteScrollPagination(initialPieces, 'pieces') as [
-    Piece[]
-  ];
+  const [pieces] = useInfiniteScrollPagination(
+    initialPieces,
+    getPiecesThroughApi
+  ) as [Piece[]];
 
   return (
     <PageContainer>

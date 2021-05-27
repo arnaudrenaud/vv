@@ -1,4 +1,4 @@
-const queryApi = async (
+export const queryApi = async (
   ressourceName: string,
   query: Record<string, string | number>
 ): Promise<unknown> => {
@@ -6,7 +6,8 @@ const queryApi = async (
     query as Record<string, string>
   ).toString();
   const response = await fetch(`/api/${ressourceName}?${queryString}`);
-  return (await response.json())[ressourceName];
+  return response.json();
 };
 
-export { queryApi };
+export const getPieces = async (pageNumber: number) =>
+  (await queryApi('pieces', { pageNumber }))['pieces'];

@@ -31,16 +31,14 @@ export const useScrollNearPageBottom = (
 
 export const useInfiniteScrollPagination = (
   initialItems: unknown[],
-  ressourceName: string
+  fetchMore: Function
 ) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const [items, setItems] = useState(initialItems);
 
   const addNextPageItem = async () => {
     const nextPageNumber = currentPageNumber + 1;
-    const nextPageItems = (await queryApi(ressourceName, {
-      pageNumber: nextPageNumber,
-    })) as unknown[];
+    const nextPageItems = (await fetchMore(nextPageNumber)) as unknown[];
     setCurrentPageNumber(nextPageNumber);
     setItems([...items, ...nextPageItems]);
   };
