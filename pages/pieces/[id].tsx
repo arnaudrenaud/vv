@@ -2,9 +2,8 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React, { useState } from 'react';
 import {
-  PIECE_PRICE_FOR_FIRST_TRACING,
-  PIECE_PRICE_FOR_SECOND_TRACING,
-  PIECE_PRICE_FOR_VIDEO_RECORDING,
+  PIECE_PRICE_FOR_DOUBLE_TRACING,
+  PIECE_PRICE_FOR_SCENE_RECORDING,
   PIECE_PRICE_PER_ADULT,
   PIECE_PRICE_PER_CHILD,
   PIECE_PRICE_PER_DOG,
@@ -53,58 +52,59 @@ import {
 const PriceDetails = ({ piece }: { piece: Piece }) => {
   const fixedPriceFeatures = [
     {
-      key: 'videoRecording',
-      label: 'captation vidéo',
-      price: PIECE_PRICE_FOR_VIDEO_RECORDING,
+      key: 'sceneRecording',
+      label: 'captation de la scène',
+      price: PIECE_PRICE_FOR_SCENE_RECORDING,
     },
     {
-      key: 'firstTracing',
-      label: 'premier décalque',
-      price: PIECE_PRICE_FOR_FIRST_TRACING,
-    },
-    {
-      key: 'secondTracing',
-      label: 'second décalque',
-      price: PIECE_PRICE_FOR_SECOND_TRACING,
+      key: 'doubleTracing',
+      label: 'décalque double',
+      price: PIECE_PRICE_FOR_DOUBLE_TRACING,
     },
   ];
 
   const multipliablePriceFeatures = [
     {
       key: 'numberOfAdults',
-      label: 'par adulte',
+      labelForSingular: 'tracé d’adulte',
+      labelForPlural: 'tracés d’adulte',
       unitPrice: PIECE_PRICE_PER_ADULT,
     },
     {
       key: 'numberOfChildren',
-      label: 'par enfant',
+      labelForSingular: 'tracé d’enfant',
+      labelForPlural: 'tracés d’enfant',
       unitPrice: PIECE_PRICE_PER_CHILD,
     },
     {
       key: 'numberOfDogs',
-      label: 'par chien',
+      labelForSingular: 'tracé de chien',
+      labelForPlural: 'tracés de chien',
       unitPrice: PIECE_PRICE_PER_DOG,
     },
     {
       key: 'numberOfNonFlyingBirds',
-      label: 'par oiseau non volant',
+      labelForSingular: 'tracé d’oiseau non volant',
+      labelForPlural: 'tracés d’oiseau non volant',
       unitPrice: PIECE_PRICE_PER_NON_FLYING_BIRD,
     },
     {
       key: 'numberOfFlyingBirds',
-      label: 'par oiseau volant',
+      labelForSingular: 'tracé d’oiseau volant',
+      labelForPlural: 'tracés d’oiseau volant',
       unitPrice: PIECE_PRICE_PER_FLYING_BIRD,
     },
     {
       key: 'numberOfSubjectsComingAndGoing',
-      label: 'par sujet faisant des allers et retours',
+      labelForSingular: 'tracé de figure faisant des allers et retours',
+      labelForPlural: 'tracés de figure faisant des allers et retours',
       unitPrice: PIECE_PRICE_PER_SUBJECT_COMING_AND_GOING,
     },
   ];
 
   return (
     <StyledPriceDetails>
-      Détail du prix&thinsp;:&thinsp;
+      Prix détaillé&thinsp;:&thinsp;
       <StyledPriceDetailsList>
         {fixedPriceFeatures.map(
           (feature) =>
@@ -121,7 +121,11 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
           (feature) =>
             piece[feature.key] && (
               <StyledPriceDetailsListItem key={feature.key}>
-                {feature.unitPrice}&thinsp;€ {feature.label}&thinsp;:&thinsp;
+                {piece[feature.key]}{' '}
+                {piece[feature.key] > 1
+                  ? feature.labelForPlural
+                  : feature.labelForSingular}
+                &thinsp;:&thinsp;
                 <StyledPriceDetailsListItemTotalPrice>
                   {piece[feature.key]}&thinsp;x&thinsp;{feature.unitPrice}
                   &thinsp;=&thinsp;
