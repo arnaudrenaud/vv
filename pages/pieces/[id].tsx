@@ -53,7 +53,7 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
   const fixedPriceFeatures = [
     {
       key: 'sceneRecording',
-      label: 'captation de la scène',
+      label: 'captation vidéo de la scène',
       price: PIECE_PRICE_FOR_SCENE_RECORDING,
     },
     {
@@ -66,38 +66,38 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
   const multipliablePriceFeatures = [
     {
       key: 'numberOfAdults',
-      labelForSingular: 'tracé d’adulte',
-      labelForPlural: 'tracés d’adulte',
+      labelForSingular: 'figure d’adulte',
+      labelForPlural: 'figures d’adulte',
       unitPrice: PIECE_PRICE_PER_ADULT,
     },
     {
       key: 'numberOfChildren',
-      labelForSingular: 'tracé d’enfant',
-      labelForPlural: 'tracés d’enfant',
+      labelForSingular: 'figure d’enfant',
+      labelForPlural: 'figures d’enfant',
       unitPrice: PIECE_PRICE_PER_CHILD,
     },
     {
       key: 'numberOfDogs',
-      labelForSingular: 'tracé de chien',
-      labelForPlural: 'tracés de chien',
+      labelForSingular: 'figure de chien',
+      labelForPlural: 'figures de chien',
       unitPrice: PIECE_PRICE_PER_DOG,
     },
     {
       key: 'numberOfNonFlyingBirds',
-      labelForSingular: 'tracé d’oiseau non volant',
-      labelForPlural: 'tracés d’oiseau non volant',
+      labelForSingular: 'figure d’oiseau non volant',
+      labelForPlural: 'figures d’oiseau non volant',
       unitPrice: PIECE_PRICE_PER_NON_FLYING_BIRD,
     },
     {
       key: 'numberOfFlyingBirds',
-      labelForSingular: 'tracé d’oiseau volant',
-      labelForPlural: 'tracés d’oiseau volant',
+      labelForSingular: 'figure d’oiseau volant',
+      labelForPlural: 'figures d’oiseau volant',
       unitPrice: PIECE_PRICE_PER_FLYING_BIRD,
     },
     {
       key: 'numberOfSubjectsComingAndGoing',
-      labelForSingular: 'tracé de figure faisant des allers et retours',
-      labelForPlural: 'tracés de figure faisant des allers et retours',
+      labelForSingular: 'figure faisant des allers et retours',
+      labelForPlural: 'figures faisant des allers et retours',
       unitPrice: PIECE_PRICE_PER_SUBJECT_COMING_AND_GOING,
     },
   ];
