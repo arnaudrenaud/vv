@@ -42,13 +42,13 @@ const Header = ({
           {isOnIndexPage && (
             <>
               <StyledServiceTitle>{SITE_TITLE}</StyledServiceTitle>{' '}
-              <span>est un projet de transcription du mouvement.</span>
+              <span>est un projet de transcription manuelle du mouvement.</span>
             </>
           )}
         </StyledHeadParagraph>
         {isOnIndexPage && (
           <StyledParagraph>
-            Chaque trait résulte du suivi d’une figure dans une scène.
+            Chaque trait résulte du suivi d’une figure dans une scène filmée.
           </StyledParagraph>
         )}
       </StyledHeader>
