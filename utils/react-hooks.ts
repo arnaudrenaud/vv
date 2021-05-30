@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getPageLocation } from './window';
 
-import { queryApi } from './query-api';
-
 export const useScrollNearPageBottom = (
   action: Function,
   triggerCondition: any
