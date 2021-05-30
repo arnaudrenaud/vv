@@ -1,3 +1,13 @@
+import { PieceTechnique, PieceTechniqueDetails } from './types';
+
+export const pieceTechniqueHTMLLabel = {
+  [PieceTechnique.FELT_PEN_ON_PAPER]: 'feutre sur papier',
+};
+export const pieceTechniqueDetailsHTMLLabel = {
+  [PieceTechniqueDetails.ONE_POINT_0_MM_FELT_PEN_ON_180_G_PER_SQ_M_GRAIN_PAPER]:
+    'feutre 1,0&thinsp;mm sur papier à grain 180 g&thinsp;/&thinsp;m²',
+};
+
 export const PIECE_PRICE_FOR_SCENE_RECORDING = 12;
 export const PIECE_PRICE_FOR_DOUBLE_TRACING = 18;
 export const PIECE_PRICE_PER_ADULT = 3;

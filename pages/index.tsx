@@ -3,16 +3,18 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import galleryStyles from '../styles/Gallery.module.css';
-import { LinkToPieceDetails } from '../react-components/styled/gallery';
 import { Piece } from '../model/piece/types';
+import { pieceTechniqueHTMLLabel } from '../model/piece/constants';
 import { getPieces, getPiecePrice } from '../model/piece/functions';
 import { getPieces as getPiecesThroughApi } from '../utils/query-api';
+
+import galleryStyles from '../styles/Gallery.module.css';
+import { LinkToPieceDetails } from '../react-components/styled/gallery';
 import { PageContainer } from '../react-components/global/PageContainer';
 import Header from '../react-components/global/Header';
 import Footer from '../react-components/global/Footer';
 import { useInfiniteScrollPagination } from '../utils/react-hooks';
-import { pieceTechniqueHTMLLabel, SITE_TITLE } from '../utils/constants';
+import { SITE_TITLE } from '../utils/constants';
 
 const StyledMain = styled.main`
   padding: 64px 0;

@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React, { useState } from 'react';
 import {
+  pieceTechniqueDetailsHTMLLabel,
   PIECE_PRICE_FOR_DOUBLE_TRACING,
   PIECE_PRICE_FOR_SCENE_RECORDING,
   PIECE_PRICE_PER_ADULT,
@@ -47,10 +48,7 @@ import {
   StyledOrderFormSubmissionStatus,
   StyledOrderFormSubmissionStatusFailed,
 } from '../../react-components/styled/piece-details';
-import {
-  pieceTechniqueDetailsHTMLLabel,
-  SITE_TITLE,
-} from '../../utils/constants';
+import { SITE_TITLE } from '../../utils/constants';
 import { queryApi } from '../../utils/query-api';
 
 const PriceDetails = ({ piece }: { piece: Piece }) => {
