@@ -134,3 +134,14 @@ export const StyledOrderFormInfo = styled.p`
 export const StyledOrderFormAdditionalInfo = styled.span`
   font-size: calc(13rem / 16);
 `;
+
+export const StyledOrderFormSubmissionStatus = styled.div`
+  margin-top: 8px;
+  font-size: calc(13rem / 16);
+`;
+
+export const StyledOrderFormSubmissionStatusFailed = styled(
+  StyledOrderFormSubmissionStatus
+)`
+  color: red;
+`;

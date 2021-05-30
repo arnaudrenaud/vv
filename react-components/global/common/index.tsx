@@ -22,8 +22,8 @@ export const StyledCenteringWrapper = styled.div<{
   }`}
 `;
 
-export const Button = styled.button`
-  margin: 10px 0 0;
+export const Button = styled.button<{ disabled?: boolean }>`
+  margin: 0;
   border: 1px solid black;
   border-radius: 4px;
   padding: 6px 8px;
@@ -34,7 +34,7 @@ export const Button = styled.button`
   background: white;
   box-shadow: 1px 1px black;
 
-  &:active {
+  &:enabled:active {
     background: #eee;
     box-shadow: inset 1px 1px black;
   }
@@ -47,4 +47,11 @@ export const StyledInputField = styled.input`
   padding: 4px 4px 5px;
   font-size: 1rem;
   -webkit-appearance: none;
+`;
+
+export const StyledInputFieldSet = styled.fieldset`
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: inline;
 `;

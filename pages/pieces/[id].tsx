@@ -15,10 +15,11 @@ import {
 import { getPiece, getPiecePrice } from '../../model/piece/functions';
 import { Piece } from '../../model/piece/types';
 import {
-  Button,
   StyledCenteringWrapper,
   StyledInputField,
+  StyledInputFieldSet,
 } from '../../react-components/global/common';
+import { ButtonWithLoadingIndicator } from '../../react-components/global/common/ButtonWithLoadingIndicator';
 import Footer from '../../react-components/global/Footer';
 import Header from '../../react-components/global/Header';
 import { PageContainer } from '../../react-components/global/PageContainer';
@@ -43,11 +44,14 @@ import {
   StyledOrderFormInfo,
   StyledOrderFormWrapper,
   StyledImageLink,
+  StyledOrderFormSubmissionStatus,
+  StyledOrderFormSubmissionStatusFailed,
 } from '../../react-components/styled/piece-details';
 import {
   pieceTechniqueDetailsHTMLLabel,
   SITE_TITLE,
 } from '../../utils/constants';
+import { queryApi } from '../../utils/query-api';
 
 const PriceDetails = ({ piece }: { piece: Piece }) => {
   const fixedPriceFeatures = [
@@ -139,33 +143,91 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
   );
 };
 
-const OrderForm = () => (
-  <>
-    <div>Commande&thinsp;:</div>
-    <StyledOrderFormInfo>
-      Entrez votre adresse email et vous serez contacté pour convenir des modes
-      de paiement et de livraison.
-    </StyledOrderFormInfo>
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-      }}
-    >
-      <label>
-        Email&thinsp;:{' '}
-        <StyledInputField
-          type="email"
-          id="email"
-          name="email"
-          required
-          autoComplete="email"
-        />
-      </label>
-      <br />
-      <Button type="submit">Envoyer</Button>
-    </form>
-  </>
-);
+enum OrderFormSubmissionStatus {
+  IDLE = 'IDLE',
+  LOADING = 'LOADING',
+  SUCCEEDED = 'SUCCEEDED',
+  FAILED = 'FAILED',
+}
+
+const OrderForm = ({ pieceId }: { pieceId: string }) => {
+  const [submissionStatus, setSubmissionStatus] =
+    useState<OrderFormSubmissionStatus>(OrderFormSubmissionStatus.IDLE);
+
+  const submit = async (email: string) => {
+    setSubmissionStatus(OrderFormSubmissionStatus.LOADING);
+    try {
+      const response = await queryApi(
+        'POST',
+        'orders',
+        {},
+        {
+          pieceId,
+          email,
+        }
+      );
+      setSubmissionStatus(OrderFormSubmissionStatus.SUCCEEDED);
+    } catch (error) {
+      setSubmissionStatus(OrderFormSubmissionStatus.FAILED);
+    }
+  };
+
+  return (
+    <>
+      <div>Commande&thinsp;:</div>
+      <StyledOrderFormInfo>
+        Entrez votre adresse email et vous serez contacté pour convenir des
+        modes de paiement et de livraison.
+      </StyledOrderFormInfo>
+      <form
+        onSubmit={async (event) => {
+          event.preventDefault();
+          if (submissionStatus === OrderFormSubmissionStatus.IDLE) {
+            const formData = new FormData(event.currentTarget);
+            const email = formData.get('email') as string;
+            await submit(email);
+          }
+        }}
+      >
+        <StyledInputFieldSet
+          disabled={submissionStatus !== OrderFormSubmissionStatus.IDLE}
+        >
+          <label>
+            Email&thinsp;:{' '}
+            <StyledInputField
+              type="email"
+              id="email"
+              name="email"
+              required
+              autoComplete="email"
+            />
+          </label>
+        </StyledInputFieldSet>
+        <br />
+        {(submissionStatus === OrderFormSubmissionStatus.IDLE ||
+          submissionStatus === OrderFormSubmissionStatus.LOADING) && (
+          <ButtonWithLoadingIndicator
+            type="submit"
+            loading={submissionStatus === OrderFormSubmissionStatus.LOADING}
+          >
+            <span>Envoyer</span>
+          </ButtonWithLoadingIndicator>
+        )}
+      </form>
+      {submissionStatus === OrderFormSubmissionStatus.SUCCEEDED ? (
+        <StyledOrderFormSubmissionStatus>
+          Votre commande a été enregistrée. Vous allez recevoir un email de
+          confirmation.
+        </StyledOrderFormSubmissionStatus>
+      ) : submissionStatus === OrderFormSubmissionStatus.FAILED ? (
+        <StyledOrderFormSubmissionStatusFailed>
+          Votre commande n’a pas pu être enregistrée. Veuillez rafraîchir la
+          page et réessayer.
+        </StyledOrderFormSubmissionStatusFailed>
+      ) : null}
+    </>
+  );
+};
 
 export const getServerSideProps: GetServerSideProps = async (
   context
@@ -234,7 +296,7 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
             </StyledDetails>
             <StyledOrderFormWrapper>
               {showOrderForm ? (
-                <OrderForm />
+                <OrderForm pieceId={piece.id} />
               ) : (
                 <StyledOrderButton
                   onClick={() => {
