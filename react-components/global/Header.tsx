@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { SITE_TITLE } from '../../utils/constants';
-import { StyledCenteringWrapper } from './common';
+import StyledCenteringWrapper from './CenteringWrapper';
 import Logo from './Logo';
 
 const StyledHeader = styled.header`

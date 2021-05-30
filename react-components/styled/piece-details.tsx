@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { PieceOrientation } from '../../model/piece/types';
-import { Button, SERIF_FONT_FAMILY } from '../global/common';
+import Button from '../global/Button';
+import { SERIF_FONT_FAMILY } from '../global/constants';
 
 export const StyledMainContainer = styled.main`
   padding: 0 0 64px;

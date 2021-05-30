@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import LoadingIndicator from './LoadingIndicator';
-import { Button } from '.';
+import Button from './Button';
 
 const StyledLoadingIndicatorWrapper = styled.div`
   margin-left: 10px;

@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import React, { useState } from 'react';
+
 import {
   pieceTechniqueDetailsHTMLLabel,
   PIECE_PRICE_FOR_DOUBLE_TRACING,
@@ -12,42 +13,16 @@ import {
   PIECE_PRICE_PER_NON_FLYING_BIRD,
   PIECE_PRICE_PER_SUBJECT_COMING_AND_GOING,
 } from '../../model/piece/constants';
-
 import { getPiece, getPiecePrice } from '../../model/piece/functions';
 import { Piece } from '../../model/piece/types';
-import {
-  StyledCenteringWrapper,
-  StyledInputField,
-  StyledInputFieldSet,
-} from '../../react-components/global/common';
-import { ButtonWithLoadingIndicator } from '../../react-components/global/common/ButtonWithLoadingIndicator';
+import InputFieldSet from '../../react-components/global/InputFieldSet';
+import InputField from '../../react-components/global/InputField';
+import StyledCenteringWrapper from '../../react-components/global/CenteringWrapper';
+import { ButtonWithLoadingIndicator } from '../../react-components/global/ButtonWithLoadingIndicator';
 import Footer from '../../react-components/global/Footer';
 import Header from '../../react-components/global/Header';
 import { PageContainer } from '../../react-components/global/PageContainer';
-import {
-  StyledPriceDetails,
-  StyledPriceDetailsList,
-  StyledPriceDetailsListItem,
-  StyledPriceDetailsListItemTotalPrice,
-  StyledMainContainer,
-  StyledImageWrapper,
-  StyledImage,
-  StyledTitle,
-  StyledDetails,
-  StyledYearOfProduction,
-  StyledDimensions,
-  StyledTechniqueDetails,
-  StyledPriceAndOrder,
-  StyledTotalPrice,
-  StyledTotalPriceLabel,
-  StyledOrderButton,
-  StyledPieceWrapper,
-  StyledOrderFormInfo,
-  StyledOrderFormWrapper,
-  StyledImageLink,
-  StyledOrderFormSubmissionStatus,
-  StyledOrderFormSubmissionStatusFailed,
-} from '../../react-components/styled/piece-details';
+import * as styled from '../../react-components/styled/piece-details';
 import { SITE_TITLE } from '../../utils/constants';
 import { queryApi } from '../../utils/query-api';
 
@@ -105,39 +80,39 @@ const PriceDetails = ({ piece }: { piece: Piece }) => {
   ];
 
   return (
-    <StyledPriceDetails>
+    <styled.StyledPriceDetails>
       Prix détaillé&thinsp;:&thinsp;
-      <StyledPriceDetailsList>
+      <styled.StyledPriceDetailsList>
         {fixedPriceFeatures.map(
           (feature) =>
             piece[feature.key] && (
-              <StyledPriceDetailsListItem key={feature.key}>
+              <styled.StyledPriceDetailsListItem key={feature.key}>
                 {feature.label}&thinsp;:&thinsp;
-                <StyledPriceDetailsListItemTotalPrice>
+                <styled.StyledPriceDetailsListItemTotalPrice>
                   {feature.price}&thinsp;€
-                </StyledPriceDetailsListItemTotalPrice>
-              </StyledPriceDetailsListItem>
+                </styled.StyledPriceDetailsListItemTotalPrice>
+              </styled.StyledPriceDetailsListItem>
             )
         )}
         {multipliablePriceFeatures.map(
           (feature) =>
             piece[feature.key] && (
-              <StyledPriceDetailsListItem key={feature.key}>
+              <styled.StyledPriceDetailsListItem key={feature.key}>
                 {piece[feature.key]}{' '}
                 {piece[feature.key] > 1
                   ? feature.labelForPlural
                   : feature.labelForSingular}
                 &thinsp;:&thinsp;
-                <StyledPriceDetailsListItemTotalPrice>
+                <styled.StyledPriceDetailsListItemTotalPrice>
                   {piece[feature.key]}&thinsp;x&thinsp;{feature.unitPrice}
                   &thinsp;=&thinsp;
                   {feature.unitPrice * piece[feature.key]}&thinsp;€
-                </StyledPriceDetailsListItemTotalPrice>
-              </StyledPriceDetailsListItem>
+                </styled.StyledPriceDetailsListItemTotalPrice>
+              </styled.StyledPriceDetailsListItem>
             )
         )}
-      </StyledPriceDetailsList>
-    </StyledPriceDetails>
+      </styled.StyledPriceDetailsList>
+    </styled.StyledPriceDetails>
   );
 };
 
@@ -173,10 +148,10 @@ const OrderForm = ({ pieceId }: { pieceId: string }) => {
   return (
     <>
       <div>Commande&thinsp;:</div>
-      <StyledOrderFormInfo>
+      <styled.StyledOrderFormInfo>
         Entrez votre adresse email et vous serez contacté pour convenir des
         modes de paiement et de livraison.
-      </StyledOrderFormInfo>
+      </styled.StyledOrderFormInfo>
       <form
         onSubmit={async (event) => {
           event.preventDefault();
@@ -187,12 +162,12 @@ const OrderForm = ({ pieceId }: { pieceId: string }) => {
           }
         }}
       >
-        <StyledInputFieldSet
+        <InputFieldSet
           disabled={submissionStatus !== OrderFormSubmissionStatus.IDLE}
         >
           <label>
             Email&thinsp;:{' '}
-            <StyledInputField
+            <InputField
               type="email"
               id="email"
               name="email"
@@ -200,7 +175,7 @@ const OrderForm = ({ pieceId }: { pieceId: string }) => {
               autoComplete="email"
             />
           </label>
-        </StyledInputFieldSet>
+        </InputFieldSet>
         <br />
         {(submissionStatus === OrderFormSubmissionStatus.IDLE ||
           submissionStatus === OrderFormSubmissionStatus.LOADING) && (
@@ -213,15 +188,15 @@ const OrderForm = ({ pieceId }: { pieceId: string }) => {
         )}
       </form>
       {submissionStatus === OrderFormSubmissionStatus.SUCCEEDED ? (
-        <StyledOrderFormSubmissionStatus>
+        <styled.StyledOrderFormSubmissionStatus>
           Votre commande a été enregistrée. Vous allez recevoir un email de
           confirmation.
-        </StyledOrderFormSubmissionStatus>
+        </styled.StyledOrderFormSubmissionStatus>
       ) : submissionStatus === OrderFormSubmissionStatus.FAILED ? (
-        <StyledOrderFormSubmissionStatusFailed>
+        <styled.StyledOrderFormSubmissionStatusFailed>
           Votre commande n’a pas pu être enregistrée. Veuillez rafraîchir la
           page et réessayer.
-        </StyledOrderFormSubmissionStatusFailed>
+        </styled.StyledOrderFormSubmissionStatusFailed>
       ) : null}
     </>
   );
@@ -252,62 +227,64 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
 
       <Header isOnPieceDetailsPage />
 
-      <StyledMainContainer>
-        <StyledImageWrapper>
-          <StyledImageLink
+      <styled.StyledMainContainer>
+        <styled.StyledImageWrapper>
+          <styled.StyledImageLink
             href={`/detail-images/${piece.id}.jpg`}
             target="_blank"
             rel="noopener noreferrer"
             orientation={piece.orientation}
           >
-            <StyledImage
+            <styled.StyledImage
               src={`/detail-images/${piece.id}.jpg`}
               orientation={piece.orientation}
               width={piece.orientation === 'landscape' ? 600 : 428}
               height={piece.orientation === 'landscape' ? 428 : 600}
             />
-          </StyledImageLink>
-        </StyledImageWrapper>
+          </styled.StyledImageLink>
+        </styled.StyledImageWrapper>
         <StyledCenteringWrapper isOnPieceDetailsPage>
-          <StyledPieceWrapper>
-            <StyledTitle>{piece.title}</StyledTitle>
-            <StyledDetails>
-              <StyledYearOfProduction>2021</StyledYearOfProduction>
-              <StyledDimensions>
+          <styled.StyledPieceWrapper>
+            <styled.StyledTitle>{piece.title}</styled.StyledTitle>
+            <styled.StyledDetails>
+              <styled.StyledYearOfProduction>
+                2021
+              </styled.StyledYearOfProduction>
+              <styled.StyledDimensions>
                 {piece.heightCm}&thinsp;x&thinsp;{piece.widthCm}&thinsp;cm
-              </StyledDimensions>
-              <StyledTechniqueDetails
+              </styled.StyledDimensions>
+              <styled.StyledTechniqueDetails
                 dangerouslySetInnerHTML={{
                   __html:
                     pieceTechniqueDetailsHTMLLabel[piece.techniqueDetails],
                 }}
               />
-              <StyledPriceAndOrder>
+              <styled.StyledPriceAndOrder>
                 <PriceDetails piece={piece} />
-                <StyledTotalPrice>
-                  <StyledTotalPriceLabel>
+                <styled.StyledTotalPrice>
+                  <styled.StyledTotalPriceLabel>
                     Prix total&thinsp;:&thinsp;
-                  </StyledTotalPriceLabel>
+                  </styled.StyledTotalPriceLabel>
                   {getPiecePrice(piece)}&thinsp;€
-                </StyledTotalPrice>
-              </StyledPriceAndOrder>
-            </StyledDetails>
-            <StyledOrderFormWrapper>
+                </styled.StyledTotalPrice>
+              </styled.StyledPriceAndOrder>
+            </styled.StyledDetails>
+            <styled.StyledOrderFormWrapper>
               {showOrderForm ? (
                 <OrderForm pieceId={piece.id} />
               ) : (
-                <StyledOrderButton
+                <styled.StyledOrderButton
                   onClick={() => {
                     setShowOrderForm(true);
                   }}
                 >
                   Commander
-                </StyledOrderButton>
+                </styled.StyledOrderButton>
               )}
-            </StyledOrderFormWrapper>
-          </StyledPieceWrapper>
+            </styled.StyledOrderFormWrapper>
+          </styled.StyledPieceWrapper>
         </StyledCenteringWrapper>
-      </StyledMainContainer>
+      </styled.StyledMainContainer>
 
       <Footer isOnPieceDetailsPage />
     </PageContainer>

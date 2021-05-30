@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledCenteringWrapper } from './common';
+import StyledCenteringWrapper from './CenteringWrapper';
 
 const StyledPositioningWrapper = styled.div`
   position: absolute;
