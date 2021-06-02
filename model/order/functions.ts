@@ -137,7 +137,8 @@ export const processOrder = async (
   if (
     !isURL(webOrigin, { require_tld: false }) ||
     !isEmail(buyerEmailAddress) ||
-    !piece
+    !piece ||
+    !piece.isAvailable
   ) {
     throw Error(PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT);
   }
