@@ -272,7 +272,7 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
             <styled.StyledOrderFormWrapper>
               {showOrderForm ? (
                 <OrderForm pieceId={piece.id} />
-              ) : (
+              ) : piece.isAvailable ? (
                 <styled.StyledOrderButton
                   onClick={() => {
                     setShowOrderForm(true);
@@ -280,6 +280,8 @@ export default function PieceDetails({ piece }: { piece: Piece }) {
                 >
                   Commander
                 </styled.StyledOrderButton>
+              ) : (
+                'Cette pièce n‘est pas disponible à la vente.'
               )}
             </styled.StyledOrderFormWrapper>
           </styled.StyledPieceWrapper>
