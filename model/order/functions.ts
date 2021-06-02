@@ -1,6 +1,9 @@
 import dotenv from 'dotenv';
 import { connect as connectToMailjet, Email } from 'node-mailjet';
 import { v4 as uuidV4 } from 'uuid';
+import validator from 'validator';
+
+const { isEmail, isURL } = validator;
 
 import { SITE_TITLE } from '../../utils/constants';
 import { getPiece, getPiecePrice } from '../piece/functions';
@@ -121,13 +124,25 @@ const sendOrderEmails = async (
   });
 };
 
+export const PROCESS_ORDER_ERROR_MESSAGES = {
+  INVALID_INPUT: 'Invalid input.',
+};
+
 export const processOrder = async (
   webOrigin: string,
   pieceId: string,
   buyerEmailAddress: string
-) => {
+): Promise<void> => {
+  const piece = getPiece(pieceId);
+  if (
+    !isURL(webOrigin, { require_tld: false }) ||
+    !isEmail(buyerEmailAddress) ||
+    !piece
+  ) {
+    throw Error(PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT);
+  }
   const orderId = uuidV4();
-  const piecePrice = getPiecePrice(getPiece(pieceId));
+  const piecePrice = getPiecePrice(piece);
   const pieceDetailsUrl = `${webOrigin}/pieces/${pieceId}`;
   await sendOrderEmails(
     orderId,
