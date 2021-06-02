@@ -1,7 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import styled from 'styled-components';
 
 import { Piece } from '../model/piece/types';
 import { pieceTechniqueHTMLLabel } from '../model/piece/constants';
@@ -9,21 +8,26 @@ import { getPieces, getPiecePrice } from '../model/piece/functions';
 import { getPieces as getPiecesThroughApi } from '../utils/query-api';
 
 import galleryStyles from '../styles/Gallery.module.css';
-import { LinkToPieceDetails } from '../react-components/styled/gallery';
+import * as styled from '../react-components/styled/gallery';
 import { PageContainer } from '../react-components/global/PageContainer';
 import Header from '../react-components/global/Header';
 import Footer from '../react-components/global/Footer';
 import { useInfiniteScrollPagination } from '../utils/react-hooks';
 import { SITE_TITLE } from '../utils/constants';
 
-const StyledMain = styled.main`
-  padding: 64px 0;
-`;
+const PiecePrice = ({ piece }: { piece: Piece }) => (
+  <span>
+    <styled.PiecePrice isAvailable={piece.isAvailable}>
+      {getPiecePrice(piece)}&thinsp;€
+    </styled.PiecePrice>
+    {!piece.isAvailable && ' indisponible'}
+  </span>
+);
 
 const GalleryPiece = ({ piece }: { piece: Piece }) => (
   <li>
     <Link href={`/pieces/${piece.id}`} passHref>
-      <LinkToPieceDetails orientation={piece.orientation}>
+      <styled.LinkToPieceDetails orientation={piece.orientation}>
         <img
           className={galleryStyles.piece__image}
           src={`/gallery-images/${piece.id}.jpg`}
@@ -31,7 +35,7 @@ const GalleryPiece = ({ piece }: { piece: Piece }) => (
           width={piece.orientation === 'landscape' ? 600 : 428}
           height={piece.orientation === 'landscape' ? 428 : 600}
         />
-      </LinkToPieceDetails>
+      </styled.LinkToPieceDetails>
     </Link>
     <div className={galleryStyles['piece-title']}>
       {piece.title}
@@ -40,7 +44,8 @@ const GalleryPiece = ({ piece }: { piece: Piece }) => (
         {pieceTechniqueHTMLLabel[piece.technique]}
       </div>
       <div className={galleryStyles['piece-details']}>
-        {getPiecePrice(piece)}&thinsp;€ —{' '}
+        <PiecePrice piece={piece} />
+        {' — '}
         <Link href={`/pieces/${piece.id}`} passHref>
           <a>détails</a>
         </Link>
@@ -71,13 +76,13 @@ const Index = ({ initialPieces }: { initialPieces: Piece[] }) => {
 
       <Header isOnIndexPage />
 
-      <StyledMain>
+      <styled.Main>
         <ul className={galleryStyles.gallery}>
           {pieces.map((piece) => (
             <GalleryPiece piece={piece} key={piece.id} />
           ))}
         </ul>
-      </StyledMain>
+      </styled.Main>
 
       <Footer />
     </PageContainer>

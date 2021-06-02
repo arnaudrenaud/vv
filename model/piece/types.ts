@@ -13,6 +13,7 @@ export enum PieceTechniqueDetails {
 
 export type Piece = {
   id: string;
+  isAvailable: boolean;
   orientation: PieceOrientation;
   title: string;
   heightCm: number;
