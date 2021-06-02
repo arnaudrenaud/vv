@@ -9,6 +9,9 @@ export const queryApi = async (
   ).toString();
   const response = await fetch(`/api/${ressourceName}?${queryString}`, {
     method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
     ...(body && { body: JSON.stringify(body) }),
   });
   if (!response.ok) {
