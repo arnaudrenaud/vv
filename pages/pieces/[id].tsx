@@ -173,6 +173,7 @@ const OrderForm = ({ pieceId }: { pieceId: string }) => {
               name="email"
               required
               autoComplete="email"
+              autoFocus
             />
           </label>
         </InputFieldSet>
