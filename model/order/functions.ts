@@ -6,6 +6,7 @@ import validator from 'validator';
 const { isEmail, isURL } = validator;
 
 import { SITE_TITLE } from '../../utils/constants';
+import { KNOWN_ERRORS } from '../../utils/model/constants';
 import { getPiece, getPiecePrice } from '../piece/functions';
 
 dotenv.config();
@@ -124,10 +125,6 @@ const sendOrderEmails = async (
   });
 };
 
-export const PROCESS_ORDER_ERROR_MESSAGES = {
-  INVALID_INPUT: 'Invalid input.',
-};
-
 export const processOrder = async (
   webOrigin: string,
   pieceId: string,
@@ -140,7 +137,7 @@ export const processOrder = async (
     !piece ||
     !piece.isAvailable
   ) {
-    throw Error(PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT);
+    throw Error(KNOWN_ERRORS.PROCESS_ORDER_INVALID_INPUT.id);
   }
   const orderId = uuidV4();
   const piecePrice = getPiecePrice(piece);
