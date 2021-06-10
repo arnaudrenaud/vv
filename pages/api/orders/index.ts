@@ -5,33 +5,40 @@ import {
 } from '../../../model/order/functions';
 import { INTERNAL_ERROR_MESSAGE } from '../../../utils/api/constants';
 
-export default async (
+const handleError = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
+  runController: () => Promise<void>
 ): Promise<void> => {
-  const { origin: webOrigin } = req.headers;
-  const { pieceId, email } = req.body;
-  if (
-    !webOrigin ||
-    !pieceId ||
-    !email ||
-    typeof pieceId !== 'string' ||
-    typeof email !== 'string'
-  ) {
-    return res
-      .status(400)
-      .json({ error: PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT });
-  }
   try {
-    await processOrder(webOrigin, pieceId, email);
-    return res.status(201).json({});
+    await runController();
   } catch (error) {
+    console.error({ error, req });
     if (error.message === PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT) {
       return res
         .status(400)
         .json({ error: PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT });
     }
-    console.error(error);
     return res.status(500).json({ error: INTERNAL_ERROR_MESSAGE });
   }
 };
+
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> =>
+  handleError(req, res, async () => {
+    const { origin: webOrigin } = req.headers;
+    const { pieceId, email } = req.body;
+    if (
+      !webOrigin ||
+      !pieceId ||
+      !email ||
+      typeof pieceId !== 'string' ||
+      typeof email !== 'string'
+    ) {
+      throw Error(PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT);
+    }
+    await processOrder(webOrigin, pieceId, email);
+    return res.status(201).json({});
+  });
