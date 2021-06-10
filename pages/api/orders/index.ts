@@ -11,7 +11,8 @@ const handleError = async (
   runController: () => Promise<void>
 ): Promise<void> => {
   try {
-    await runController();
+    const response = await runController();
+    return response;
   } catch (error) {
     console.error({ error, req });
     if (error.message === PROCESS_ORDER_ERROR_MESSAGES.INVALID_INPUT) {
