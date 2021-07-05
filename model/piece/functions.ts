@@ -10,6 +10,7 @@ import {
   PIECE_PRICE_PER_SUBJECT_COMING_AND_GOING,
   PIECE_PRICE_FOR_DOUBLE_TRACING,
 } from './constants';
+import { KNOWN_ERRORS } from '../../utils/model/constants';
 
 const PAGE_SIZE = 5;
 export const getPieces = ({ pageNumber }: { pageNumber: number }): Piece[] => {
@@ -17,7 +18,13 @@ export const getPieces = ({ pageNumber }: { pageNumber: number }): Piece[] => {
   return pieces.slice(skip, skip + PAGE_SIZE);
 };
 
-export const getPiece = (id: string) => pieces.find((piece) => piece.id === id);
+export const getPiece = (id: string) => {
+  const piece = pieces.find((piece) => piece.id === id);
+  if (!piece) {
+    throw Error(KNOWN_ERRORS.PIECE_DOES_NOT_EXIST.id);
+  }
+  return piece;
+};
 
 export const getPiecePrice = (piece: Piece): number =>
   (piece.sceneRecording ? PIECE_PRICE_FOR_SCENE_RECORDING : 0) +
