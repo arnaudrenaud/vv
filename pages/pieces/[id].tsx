@@ -130,7 +130,7 @@ const OrderForm = ({ pieceId }: { pieceId: string }) => {
   const submit = async (email: string) => {
     setSubmissionStatus(OrderFormSubmissionStatus.LOADING);
     try {
-      const response = await queryApi(
+      await queryApi(
         'POST',
         'orders',
         {},
@@ -211,7 +211,7 @@ export const getServerSideProps: GetServerSideProps = async (
   const { id } = context.query;
 
   const piece = getPiece(id as string);
-  return { props: { piece: piece } };
+  return { props: { piece } };
 };
 
 export default function PieceDetails({ piece }: { piece: Piece }) {

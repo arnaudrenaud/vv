@@ -1,17 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { processOrder } from '../../../model/order/functions';
-import {
-  handleError,
-  respondWithErrorIfMethodNotAllowed,
-} from '../../../utils/api/functions';
+import { handleApiError, allowOnlyMethods } from '../../../utils/api/functions';
 import { KNOWN_ERRORS } from '../../../utils/model/constants';
 
 export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> =>
-  handleError(req, res, async () => {
-    respondWithErrorIfMethodNotAllowed(req.method, ['POST']);
+  handleApiError(req, res, async () => {
+    allowOnlyMethods(req.method, ['POST']);
 
     const { origin: webOrigin } = req.headers;
     const { pieceId, email } = req.body;

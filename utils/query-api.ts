@@ -14,11 +14,15 @@ export const queryApi = async (
     },
     ...(body && { body: JSON.stringify(body) }),
   });
+  const json = await response.json();
   if (!response.ok) {
-    throw new Error();
+    throw new Error(json.error);
   }
-  return response.json();
+  return json;
 };
 
 export const getPieces = async (pageNumber: number) =>
   (await queryApi('GET', 'pieces', { pageNumber }))['pieces'];
+
+export const logError = async (message: string, stack: string) =>
+  await queryApi('POST', 'client-errors', {}, { message, stack });

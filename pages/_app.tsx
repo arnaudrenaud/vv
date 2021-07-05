@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import { memo, useEffect, useRef } from 'react';
+
+import { reportErrorsToServer } from '../utils/window';
 import '../styles/globals.css';
 
 const ROUTES_TO_RETAIN = ['/'];
@@ -41,8 +43,10 @@ const App = ({ Component, pageProps }) => {
     }
   }, [Component, pageProps]);
 
+  useEffect(reportErrorsToServer, []);
+
   return (
-    <div>
+    <>
       <div style={{ display: isRetainableRoute ? 'block' : 'none' }}>
         {Object.entries(retainedComponents.current).map(
           ([path, { component }]: [string, { component: JSX.Element }]) => (
@@ -56,7 +60,7 @@ const App = ({ Component, pageProps }) => {
         )}
       </div>
       {!isRetainableRoute && <Component {...pageProps} />}
-    </div>
+    </>
   );
 };
 
